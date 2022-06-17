@@ -19,7 +19,7 @@ import javax.swing.JTextPane;
 
 public class Display {
 
-	private JFrame frame;
+	JFrame displayframe;
 
 	/**
 	 * Launch the application.
@@ -29,7 +29,7 @@ public class Display {
 			public void run() {
 				try {
 					Display window = new Display();
-					window.frame.setVisible(true);
+					window.displayframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,21 +48,22 @@ public class Display {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
-		frame.setTitle("Placement Management system");
+		displayframe = new JFrame();
+		displayframe.getContentPane().setBackground(new Color(135, 206, 250));
+		displayframe.getContentPane().setLayout(null);
+		displayframe.setExtendedState(displayframe.MAXIMIZED_BOTH);
+		displayframe.setTitle("Placement Management system");
 		
 		JLabel lblNewLabel = new JLabel("DISPLAY");
 		lblNewLabel.setBounds(264, 66, 1036, 61);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 50));
-		frame.getContentPane().add(lblNewLabel);
+		displayframe.getContentPane().add(lblNewLabel);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textArea.setBounds(355, 198, 879, 357);
-		frame.getContentPane().add(textArea);
+		displayframe.getContentPane().add(textArea);
 		
 		JButton btnNewButton = new JButton("DISPLAY");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -75,11 +76,11 @@ public class Display {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 29));
 		btnNewButton.setBounds(675, 674, 229, 61);
-		frame.getContentPane().add(btnNewButton);
+		displayframe.getContentPane().add(btnNewButton);
 		
 
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		displayframe.setBounds(500, 500, 1050, 800);
+		displayframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	private static String buildText() {

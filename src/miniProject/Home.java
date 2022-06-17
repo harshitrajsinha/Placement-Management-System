@@ -7,15 +7,13 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
-import java.awt.GridLayout;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Home {
 
-	private JFrame frame;
+	JFrame homeframe;
 
 	/**
 	 * Launch the application.
@@ -25,7 +23,7 @@ public class Home {
 			public void run() {
 				try {
 					Home window = new Home();
-					window.frame.setVisible(true);
+					window.homeframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,39 +42,48 @@ public class Home {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setSize(761, 438);
-		frame.setTitle("Placement Management System");
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
+		homeframe = new JFrame();
+		homeframe.setSize(761, 438);
+		homeframe.setTitle("Placement Management System");
+		homeframe.getContentPane().setBackground(new Color(135, 206, 250));
+		homeframe.setExtendedState(homeframe.MAXIMIZED_BOTH);
+		homeframe.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("HOME");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 66));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(242, 53, 1189, 57);
-		frame.getContentPane().add(lblNewLabel);
+		homeframe.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("STUDENT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentDetails sd = new StudentDetails();
+				sd.sd.setVisible(true);
+				homeframe.dispose();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 50));
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBackground(new Color(0, 255, 255));
 		btnNewButton.setBounds(175, 248, 429, 114);
-		frame.getContentPane().add(btnNewButton);
+		homeframe.getContentPane().add(btnNewButton);
+		
 		
 		JButton btnCompany = new JButton("COMPANY");
 		btnCompany.setForeground(Color.BLACK);
 		btnCompany.setFont(new Font("Tahoma", Font.BOLD, 50));
 		btnCompany.setBackground(Color.CYAN);
 		btnCompany.setBounds(1085, 248, 429, 114);
-		frame.getContentPane().add(btnCompany);
+		homeframe.getContentPane().add(btnCompany);
 		
 		JButton btnSummary = new JButton("SUMMARY");
 		btnSummary.setForeground(Color.BLACK);
 		btnSummary.setFont(new Font("Tahoma", Font.BOLD, 50));
 		btnSummary.setBackground(Color.CYAN);
 		btnSummary.setBounds(597, 539, 429, 114);
-		frame.getContentPane().add(btnSummary);
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		homeframe.getContentPane().add(btnSummary);
+		homeframe.setBounds(500, 500, 1050, 800);
+		homeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
