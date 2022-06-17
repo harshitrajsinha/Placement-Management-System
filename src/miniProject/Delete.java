@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class Delete {
 
-	private JFrame frame;
+	JFrame deleteframe;
 	private JTextField textField;
 
 	/**
@@ -30,7 +30,7 @@ public class Delete {
 			public void run() {
 				try {
 					Delete window = new Delete();
-					window.frame.setVisible(true);
+					window.deleteframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,27 +49,28 @@ public class Delete {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setTitle("Placement Managemet System");
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
+		deleteframe = new JFrame();
+		deleteframe.setBounds(500, 500, 1050, 800);
+		deleteframe.setTitle("Placement Managemet System");
+		deleteframe.setExtendedState(deleteframe.MAXIMIZED_BOTH);
+		deleteframe.getContentPane().setBackground(new Color(135, 206, 250));
+		deleteframe.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("DELETE");
 		lblNewLabel.setBounds(10, 45, 1540, 61);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 50));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel);
+		deleteframe.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Enter USN to Delete");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		lblNewLabel_1.setBounds(290, 164, 362, 68);
-		frame.getContentPane().add(lblNewLabel_1);
+		deleteframe.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField.setBounds(913, 164, 334, 68);
-		frame.getContentPane().add(textField);
+		deleteframe.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("DELETE");
@@ -120,7 +121,7 @@ public class Delete {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		btnNewButton.setBounds(712, 619, 177, 61);
-		frame.getContentPane().add(btnNewButton);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		deleteframe.getContentPane().add(btnNewButton);
+		deleteframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

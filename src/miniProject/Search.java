@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 public class Search {
 
-	private JFrame frame;
+	JFrame searchframe;
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -28,7 +28,7 @@ public class Search {
 			public void run() {
 				try {
 					Search window = new Search();
-					window.frame.setVisible(true);
+					window.searchframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -47,33 +47,34 @@ public class Search {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setTitle("Placement Managemet System");
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
+		searchframe = new JFrame();
+		searchframe.setBounds(500, 500, 1050, 800);
+		searchframe.setTitle("Placement Managemet System");
+		searchframe.getContentPane().setBackground(new Color(135, 206, 250));
+		searchframe.getContentPane().setLayout(null);
+		searchframe.setExtendedState(searchframe.MAXIMIZED_BOTH);
 		
 		JLabel lblNewLabel = new JLabel("SEARCH");
 		lblNewLabel.setBounds(10, 45, 1540, 61);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 50));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel);
+		searchframe.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Enter USN to Search");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		lblNewLabel_1.setBounds(290, 164, 362, 68);
-		frame.getContentPane().add(lblNewLabel_1);
+		searchframe.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField.setBounds(913, 164, 334, 68);
-		frame.getContentPane().add(textField);
+		searchframe.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_1.setBounds(278, 335, 1011, 104);
-		frame.getContentPane().add(textField_1);
+		searchframe.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("SEARCH");
@@ -110,7 +111,7 @@ public class Search {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		btnNewButton.setBounds(712, 619, 177, 61);
-		frame.getContentPane().add(btnNewButton);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		searchframe.getContentPane().add(btnNewButton);
+		searchframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
