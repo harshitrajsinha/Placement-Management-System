@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 public class Display {
 
@@ -59,30 +60,16 @@ public class Display {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(320, 230, 935, 358);
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textArea.setBounds(355, 198, 879, 357);
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton = new JButton("DISPLAY");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String name = "" ,usn = "" ,sem = "" ,branch = "", s;
-				try {
-				BufferedReader br = new BufferedReader(new FileReader("student.txt"));
-				while((s = br.readLine())!=null)
-				{
-					String[] result = s.split("\\|");
-					name = result[0];
-					usn = result[1];
-					sem = result[2];
-					branch = result[3];
-					System.out.println("The details are: " + '\n' + name + " " + usn + " " + sem + " " + branch + '\n');
-				}
-				br.close();
-				}
-				catch(IOException ioe) {
-					System.out.println("Some error occured");
-				}
+				textArea.setText(buildText());
+		
 				
 			}
 		});
@@ -90,7 +77,33 @@ public class Display {
 		btnNewButton.setBounds(675, 674, 229, 61);
 		frame.getContentPane().add(btnNewButton);
 		
+
 		frame.setBounds(500, 500, 1050, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private static String buildText() {
+		StringBuilder sb = new StringBuilder();
+
+		String name = "" ,usn = "" ,sem = "" ,branch = "", cgpa = "",s;
+		try {
+		BufferedReader br = new BufferedReader(new FileReader("student.txt"));
+		while((s = br.readLine())!=null)
+		{
+			String[] result = s.split("\\|");
+			name = result[0];
+			usn = result[1];
+			sem = result[2];
+			branch = result[3];
+			cgpa = result[4];
+			sb.append(" " + name + "  " + usn + "  " + sem + "  " + branch + "  " + cgpa + "\n");
+		}
+		br.close();
+		return sb.toString();
+		}
+		catch(IOException ioe) {
+			sb.append("Some error occured");
+			return sb.toString();
+		}
 	}
 }
