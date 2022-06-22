@@ -1,4 +1,4 @@
-package miniProject;
+package miniProject.Student_Details;
 
 import java.awt.Color;
 import java.awt.EventQueue;

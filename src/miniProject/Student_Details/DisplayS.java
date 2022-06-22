@@ -1,4 +1,4 @@
-package miniProject;
+package miniProject.Student_Details;
 
 import java.awt.EventQueue;
 
@@ -17,9 +17,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-public class Display {
+public class DisplayS {
 
-	private JFrame frame;
+	JFrame displayframe;
 
 	/**
 	 * Launch the application.
@@ -28,8 +28,8 @@ public class Display {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Display window = new Display();
-					window.frame.setVisible(true);
+					DisplayS window = new DisplayS();
+					window.displayframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,7 +40,7 @@ public class Display {
 	/**
 	 * Create the application.
 	 */
-	public Display() {
+	public DisplayS() {
 		initialize();
 	}
 
@@ -48,21 +48,36 @@ public class Display {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
-		frame.setTitle("Placement Management system");
+		displayframe = new JFrame();
+		displayframe.getContentPane().setBackground(new Color(135, 206, 250));
+		displayframe.getContentPane().setLayout(null);
+		displayframe.setExtendedState(displayframe.MAXIMIZED_BOTH);
+		displayframe.setTitle("Placement Management system");
 		
 		JLabel lblNewLabel = new JLabel("DISPLAY");
 		lblNewLabel.setBounds(264, 66, 1036, 61);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 50));
-		frame.getContentPane().add(lblNewLabel);
+		displayframe.getContentPane().add(lblNewLabel);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textArea.setBounds(355, 198, 879, 357);
-		frame.getContentPane().add(textArea);
+		displayframe.getContentPane().add(textArea);
+		
+		JButton btnBack = new JButton("BACK");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentDetails sd = new StudentDetails();
+				sd.sd.setVisible(true);
+				displayframe.dispose();
+			}
+		});
+		btnBack.setForeground(Color.BLACK);
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnBack.setBackground(Color.CYAN);
+		btnBack.setBounds(854, 667, 211, 67);
+		displayframe.getContentPane().add(btnBack);
 		
 		JButton btnNewButton = new JButton("DISPLAY");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -74,12 +89,12 @@ public class Display {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 29));
-		btnNewButton.setBounds(675, 674, 229, 61);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(488, 667, 229, 61);
+		displayframe.getContentPane().add(btnNewButton);
 		
 
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		displayframe.setBounds(500, 500, 1050, 800);
+		displayframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	private static String buildText() {

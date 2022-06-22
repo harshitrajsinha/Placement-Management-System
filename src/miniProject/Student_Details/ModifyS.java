@@ -1,4 +1,4 @@
-package miniProject;
+package miniProject.Student_Details;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -16,9 +16,9 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.awt.event.ActionEvent;
 
-public class Modify {
+public class ModifyS {
 
-	private JFrame frame;
+	JFrame modifyframe;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -33,8 +33,8 @@ public class Modify {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Modify window = new Modify();
-					window.frame.setVisible(true);
+					ModifyS window = new ModifyS();
+					window.modifyframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,7 +45,7 @@ public class Modify {
 	/**
 	 * Create the application.
 	 */
-	public Modify() {
+	public ModifyS() {
 		initialize();
 	}
 
@@ -53,27 +53,42 @@ public class Modify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setTitle("Placement Management System");
-		frame.getContentPane().setBackground(new Color(135, 206, 250));
-		frame.getContentPane().setLayout(null);
+		modifyframe = new JFrame();
+		modifyframe.setTitle("Placement Management System");
+		modifyframe.getContentPane().setBackground(new Color(135, 206, 250));
+		modifyframe.getContentPane().setLayout(null);
+		modifyframe.setExtendedState(modifyframe.MAXIMIZED_BOTH);
 		
 		JLabel lblNewLabel = new JLabel("MODIFY");
 		lblNewLabel.setBounds(281, 39, 1036, 61);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 50));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel);
+		modifyframe.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Enter USN to Modify");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		lblNewLabel_1.setBounds(303, 140, 411, 54);
-		frame.getContentPane().add(lblNewLabel_1);
+		modifyframe.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField.setBounds(941, 140, 303, 48);
-		frame.getContentPane().add(textField);
+		modifyframe.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		JButton btnBack = new JButton("BACK");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentDetails sd = new StudentDetails();
+				sd.sd.setVisible(true);
+				modifyframe.dispose();
+			}
+		});
+		btnBack.setForeground(Color.BLACK);
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 40));
+		btnBack.setBackground(Color.CYAN);
+		btnBack.setBounds(901, 695, 211, 67);
+		modifyframe.getContentPane().add(btnBack);
 		
 		JButton btnNewButton = new JButton("MODIFY");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -135,60 +150,60 @@ public class Modify {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton.setBounds(737, 714, 234, 61);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(509, 702, 234, 61);
+		modifyframe.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("NAME");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_2.setBounds(303, 247, 303, 48);
-		frame.getContentPane().add(lblNewLabel_2);
+		modifyframe.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("USN");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_2_1.setBounds(303, 335, 303, 48);
-		frame.getContentPane().add(lblNewLabel_2_1);
+		modifyframe.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("SEMESTER");
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_2_2.setBounds(303, 431, 303, 48);
-		frame.getContentPane().add(lblNewLabel_2_2);
+		modifyframe.getContentPane().add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2_3 = new JLabel("BRANCH");
 		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_2_3.setBounds(303, 526, 303, 48);
-		frame.getContentPane().add(lblNewLabel_2_3);
+		modifyframe.getContentPane().add(lblNewLabel_2_3);
 		
 		JLabel lblNewLabel_2_4 = new JLabel("CGPA");
 		lblNewLabel_2_4.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_2_4.setBounds(303, 637, 303, 48);
-		frame.getContentPane().add(lblNewLabel_2_4);
+		modifyframe.getContentPane().add(lblNewLabel_2_4);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(941, 256, 303, 48);
-		frame.getContentPane().add(textField_1);
+		modifyframe.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(941, 344, 303, 48);
-		frame.getContentPane().add(textField_2);
+		modifyframe.getContentPane().add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(941, 431, 303, 48);
-		frame.getContentPane().add(textField_3);
+		modifyframe.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(941, 526, 303, 48);
-		frame.getContentPane().add(textField_4);
+		modifyframe.getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(941, 608, 303, 48);
-		frame.getContentPane().add(textField_5);
-		frame.setBounds(500, 500, 1050, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		modifyframe.getContentPane().add(textField_5);
+		modifyframe.setBounds(500, 500, 1050, 800);
+		modifyframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }
